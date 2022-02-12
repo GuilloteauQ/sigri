@@ -1,12 +1,29 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>WASM CiGri</title>
+        <title>Ctrl-CiGri WASM Simulator</title>
         <script src="main.js" type="module"></script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+        <script src="papaparse.min.js"></script>
+        <style>
+.inputs {
+    float: left;
+}
+.plots {
+    float: left;
+}
+.plotRight {
+    float: right;
+}
+.plotLeft {
+    float: left;
+}
+</style>
     </head>
     <body>
         <h1>Ctrl-CiGri Simulator</h1>
 
+        <div class="inputs">
         <p>
             <u>Upload the experiment file:</u>
             <input type="file" id="configFile">
@@ -47,10 +64,21 @@ local_users:
 
         <p>
             <button type="button" id="buttonRun">Run the Simulation</button>
+            <p id="loadedSimu">No Simulation Loaded!</p>
         </p>
 
         <a href="" id="downloadCSV">Download the CSV file</a>
+        </div>
 
+
+        <p>
+            <button type="button" id="buttonPlotLoad">File-System Load</button>
+            <button type="button" id="buttonPlotRunning">Running Jobs</button>
+            <button type="button" id="buttonPlotWaiting">Waiting Jobs</button>
+            <button type="button" id="buttonPlotSubsize">CiGri Submissions</button>
+        </p>
+
+        <div id="mainPlot" style="width:900px;height:600px;" class="plotLeft"></div>
     </body>
 
 </html>
