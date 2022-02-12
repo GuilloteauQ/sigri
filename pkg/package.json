@@ -1,0 +1,15 @@
+{
+  "name": "cigri-simul",
+  "collaborators": [
+    "Quentin Guilloteau <Quentin.Guilloteau@inria.fr>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "sigrilib_bg.wasm",
+    "sigrilib.js",
+    "sigrilib.d.ts"
+  ],
+  "module": "sigrilib.js",
+  "types": "sigrilib.d.ts",
+  "sideEffects": false
+}
