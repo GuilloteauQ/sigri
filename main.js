@@ -27,21 +27,6 @@ export function download(text, name, type) {
 }
 
 var configFile = document.getElementById('configFile')
-configFile.onchange =
-    evt => {
-        readFile(configFile)
-    }
-
-// var saveFile = document.getElementById('downloadButton')
-// saveFile.onclick = evt => {
-//     console.log(evt)
-//     console.log(filename)
-//
-//     let reader = new FileReader();
-//     reader.readAsText(filename);
-//
-//     var a = document.getElementById('a');
-//     var file = new Blob([reader.result], {type: 'text/plain'});
-//     a.href = URL.createObjectURL(file);
-//     a.download = filename;
-// }
+configFile.onchange = evt => {
+    readFile(configFile)
+}
