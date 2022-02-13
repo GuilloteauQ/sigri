@@ -60,6 +60,9 @@ buttonRun.onclick = evt => {
 
     document.getElementById('loadedSimu').innerHTML =
         'Simulation ready to be plotted!';
+
+
+    document.getElementById('loadedSimu').style.color = 'green';
 };
 
 document.getElementById('buttonPlotLoad').onclick = evt => {

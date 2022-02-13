@@ -1,0 +1,15 @@
+.inputs {
+    float: left;
+}
+.plots {
+    float: left;
+}
+.plotRight {
+    float: right;
+}
+.plotLeft {
+    float: left;
+}
+#loadedSimu {
+    color: red;
+}
