@@ -1,5 +1,16 @@
 import init, {js_start} from './pkg/sigrilib.js';
-await init();
+// await init();
+
+window.onload = function onloadas() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.has('config')) {
+        let configStr64 = urlParams.get('config');
+        let configStr = atob(configStr64);
+        document.getElementById('configArea').value = configStr;
+    }
+    init();
+};
 
 var configFile = document.getElementById('configFile')
 configFile.onchange =
@@ -19,6 +30,17 @@ let running = null;
 let waiting = null;
 let sub_sizes = null;
 let load = null;
+
+var buttonShare = document.getElementById('buttonShare')
+buttonShare.onclick = evt => {
+    // Getting the config
+    let config = document.getElementById('configArea').value;
+    // Changing the url
+    let encodedConfig = btoa(config);
+    // window.location.search = 'config=' + encodedConfig;
+    let shareableUrl = window.location.origin + '?config=' + encodedConfig;
+    alert(shareableUrl);
+};
 
 var buttonRun = document.getElementById('buttonRun')
 buttonRun.onclick = evt => {
@@ -81,7 +103,6 @@ document.getElementById('buttonPlotSubsize').onclick = evt => {
     draw_plot(
         'mainPlot', times, sub_sizes, 'CiGri Submission Size', 'Nb of Jobs');
 };
-
 
 
 function draw_plot(id, x_data, y_data, title, yaxis) {
