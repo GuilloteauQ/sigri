@@ -16,8 +16,8 @@ window.onload = function onloadas() {
         let configArea = document.getElementById('configArea')
         configArea.value = configStr;
         editor.setValue(configStr);
-        editor.setSize(400, 600);
     }
+    editor.setSize(400, 600);
     init();
 };
 
