@@ -18,6 +18,11 @@ window.onload = function onloadas() {
         editor.setValue(configStr);
     }
     editor.setSize(400, 600);
+    editor.setOption('extraKeys', {
+        'Ctrl-Enter': function(cm) {
+            document.getElementById('buttonRun').click();
+        }
+    });
     init();
 };
 
