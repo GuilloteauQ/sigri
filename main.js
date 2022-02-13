@@ -85,6 +85,7 @@ buttonRun.onclick = evt => {
 
 
     document.getElementById('loadedSimu').style.color = 'green';
+    document.getElementById('buttonPlotLoad').click();
 };
 
 document.getElementById('buttonPlotLoad').onclick = evt => {
