@@ -1,5 +1,10 @@
 import init, {js_start} from './pkg/sigrilib.js';
 // await init();
+//
+
+let configArea = document.getElementById('configArea');
+let editor = CodeMirror.fromTextArea(
+    configArea, {lineNumbers: true, indentUnit: 2, theme: 'monokai'});
 
 window.onload = function onloadas() {
     const queryString = window.location.search;
@@ -7,7 +12,9 @@ window.onload = function onloadas() {
     if (urlParams.has('config')) {
         let configStr64 = urlParams.get('config');
         let configStr = atob(configStr64);
-        document.getElementById('configArea').value = configStr;
+        let configArea = document.getElementById('configArea')
+        configArea.value = configStr;
+        editor.setValue(configStr);
     }
     init();
 };
@@ -31,10 +38,26 @@ let waiting = null;
 let sub_sizes = null;
 let load = null;
 
+configArea.onchange = evt => {
+    editor.save();
+};
+
+editor.on('change', evt => {
+    editor.save();
+});
+
 var buttonShare = document.getElementById('buttonShare')
 buttonShare.onclick = evt => {
     // Getting the config
-    let config = document.getElementById('configArea').value;
+    let configArea = document.getElementById('configArea');
+    let config = configArea.value;
+
+    editor.refresh();
+    console.log(editor.getTextArea());
+
+    editor.options.value = config;
+    editor.refresh();
+
     // Changing the url
     let encodedConfig = btoa(config);
     let shareableUrl = window.location.origin + window.location.pathname +
