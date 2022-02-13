@@ -8,8 +8,8 @@
         <script src="https://codemirror.net/lib/codemirror.js"></script>
         <script src="https://codemirror.net/mode/yaml/yaml.js"></script>
         <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://codemirror.net/theme/monokai.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Ctrl-CiGri Simulator</h1>
@@ -54,13 +54,17 @@ local_users:
         </br>
 
         <p>
-            <button type="button" id="buttonRun">Run the Simulation</button>
             <p id="loadedSimu" class="blabla">No Simulation Loaded!</p>
+            <button type="button" id="buttonRun">Run the Simulation</button>
         </p>
 
 
         <p>
-            <a href="" id="downloadCSV">Download the CSV file</a>
+            <a href="" id="downloadCSV">
+                <button type="button" id="buttonDownloadCSV">Download CSV file</button>
+            </a>
+            </br>
+            </br>
             <button type="button" id="buttonShare">Share the Simulation Config</button>
 
         </p>
@@ -68,7 +72,6 @@ local_users:
 
 
         <p>
-            <u>Plot:</u>
             <button type="button" id="buttonPlotLoad">File-System Load</button>
             <button type="button" id="buttonPlotRunning">Running Jobs</button>
             <button type="button" id="buttonPlotWaiting">Waiting Jobs</button>

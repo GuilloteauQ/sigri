@@ -17,7 +17,7 @@ window.onload = function onloadas() {
         configArea.value = configStr;
         editor.setValue(configStr);
     }
-    editor.setSize(400, 600);
+    editor.setSize(400, 500);
     editor.setOption('extraKeys', {
         'Ctrl-Enter': function(cm) {
             document.getElementById('buttonRun').click();
@@ -73,6 +73,12 @@ buttonShare.onclick = evt => {
     alert(shareableUrl);
 };
 
+let blobCSV = null;
+document.getElementById('buttonDownloadCSV').onclick = evt => {
+    var a = document.getElementById('downloadCSV');
+    a.href = URL.createObjectURL(blobCSV);
+};
+
 var buttonRun = document.getElementById('buttonRun')
 buttonRun.onclick = evt => {
     // Getting the config
@@ -80,9 +86,7 @@ buttonRun.onclick = evt => {
     // Running the simulation
     let csv_content = js_start(config)
     // Uploading the CSV
-    var blob = new Blob([csv_content], {type: 'text/plain;charset=utf-8'});
-    var a = document.getElementById('downloadCSV');
-    a.href = URL.createObjectURL(blob);
+    blobCSV = new Blob([csv_content], {type: 'text/plain;charset=utf-8'});
     // Read the CSV
     csv_results = Papa.parse(csv_content).data;
 
