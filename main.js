@@ -30,6 +30,7 @@ configFile.onchange =
 
         reader.onload = function() {
             document.getElementById('configArea').value = reader.result;
+            editor.setValue(reader.result);
         };
     }
 
