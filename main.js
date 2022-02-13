@@ -37,8 +37,8 @@ buttonShare.onclick = evt => {
     let config = document.getElementById('configArea').value;
     // Changing the url
     let encodedConfig = btoa(config);
-    // window.location.search = 'config=' + encodedConfig;
-    let shareableUrl = window.location.origin + '?config=' + encodedConfig;
+    let shareableUrl = window.location.origin + window.location.pathname +
+        '?config=' + encodedConfig;
     alert(shareableUrl);
 };
 
