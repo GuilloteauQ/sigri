@@ -4,7 +4,8 @@ import init, {js_start} from './pkg/sigrilib.js';
 
 let configArea = document.getElementById('configArea');
 let editor = CodeMirror.fromTextArea(
-    configArea, {lineNumbers: true, indentUnit: 2, theme: 'monokai'});
+    configArea,
+    {lineNumbers: true, indentUnit: 2, theme: 'monokai', mode: 'text/x-yaml'});
 
 window.onload = function onloadas() {
     const queryString = window.location.search;
@@ -15,6 +16,7 @@ window.onload = function onloadas() {
         let configArea = document.getElementById('configArea')
         configArea.value = configStr;
         editor.setValue(configStr);
+        editor.setSize(400, 600);
     }
     init();
 };
